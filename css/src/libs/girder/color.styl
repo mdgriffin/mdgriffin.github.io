@@ -1,0 +1,31 @@
+
+/* ==========================================================================
+   Color
+   ========================================================================== */
+
+
+// Generates a shade of black between #fff and #000
+blk(percentage)
+	shade(#fff,(percentage)%)
+
+// Generates a shade of white between #000 and #fff
+wht(percentage)
+	tint(#000,(percentage)%)
+
+// if dark return white, if light return black
+contrast_font(color)
+	if dark(color)
+		return #fff
+	else
+		return #000
+
+// if the color is dark,lighten it, else darken it
+alternate_color(color,amount)
+	if dark(color)
+		lighten(color,amount)
+	else
+		darken(color,amount)
+
+// if dark, darken white, else lighten black
+alternate_font(color,amount)
+	alternate_color(contrast_font(color),amount)

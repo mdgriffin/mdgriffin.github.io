@@ -1,0 +1,55 @@
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+body
+	line-height: $base-line-height
+	font-size: $base-font-size
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif
+	text-rendering: optimizeLegibility
+
+$h1-line = round($base-line-height / ($scale-factor ** 3 * 1),3)
+$h1-lines = 2
+
+h1
+	font-size: (round($scale-factor ** 3,3))em
+	line-height: $h1-line * $h1-lines
+	margin-top: (2 * $h1-line)em
+	margin-bottom: ($h1-line)em
+
+$h2-line = round($base-line-height / ($scale-factor ** 2 * 1),3)
+$h2-lines = 2
+
+h2
+	font-size: (round($scale-factor ** 2,3))em
+	line-height: $h2-line * $h2-lines
+	margin-top: (2 * $h2-line)em
+	margin-bottom: ($h2-line)em
+
+$h3-line = round($base-line-height / $scale-factor,3)
+$h3-lines = 1
+
+h3
+	font-size: ($scale-factor)em
+	line-height: $h3-line * $h3-lines
+	margin-top: ($h3-line)em
+	margin-bottom: ($h3-line)em
+
+$h4-line = $base-line-height
+$h4-lines = 1
+
+h4
+	font-size: 1em
+	line-height: $h4-line * $h4-lines
+	margin-top: ($h4-line)em
+	margin-bottom: ($h4-line)em
+
+p, ul, ol, pre, table, blockquote
+	margin-top: ($h4-line)em
+	margin-bottom: ($h4-line)em
+
+
+.textEllipsis
+	text-overflow: ellipsis

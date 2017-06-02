@@ -1,0 +1,31 @@
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+
+.form
+	fieldset
+		border: none
+		padding: 0
+		margin: 0
+
+	label
+		font-weight: bold
+
+	input[type="text"],
+	input[type="password"]
+	label
+		display: block
+
+	textarea
+		min-height: 150px
+
+
+.form--fullWidth
+	@extend .form
+
+	input[type="text"],
+	input[type="password"],
+	textarea
+		width: 100%

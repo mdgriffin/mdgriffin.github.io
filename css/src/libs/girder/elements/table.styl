@@ -1,0 +1,32 @@
+
+/* ==========================================================================
+   Table
+   ========================================================================== */
+
+
+.table
+	width: 100%
+
+	thead
+		
+		font-weight: bold
+		
+	tr
+		min-height: 30px
+
+	td,th
+		padding: 10px 0
+
+.table--textual
+	@extend .table
+
+	td,th
+		text-align: left
+	
+	td:last-child,
+	th:last-child
+		text-align: right
+	
+	td:first-child,
+	th:first-child
+		text-align: left

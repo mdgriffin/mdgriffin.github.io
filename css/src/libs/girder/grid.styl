@@ -1,0 +1,98 @@
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+
+/* Grid Functions
+   ========================================================================== */
+
+.column
+	float: left
+	if $gutter_inside
+		padding-left: ($grid_gutter / 2)
+		padding-right: ($grid_gutter / 2)
+	else if  ($grid_gutter > 0)
+		margin-left: (($grid_gutter)% / 2)
+		margin-right: (($grid_gutter)% / 2)
+
+.grid
+	if $gutter_inside
+		margin-left: -($grid_gutter / 2)
+		margin-right: -($grid_gutter / 2)
+	else
+		margin-left: -($grid_gutter / 2)%
+		margin-right: -($grid_gutter / 2)%
+
+.grid--outerGutter
+	if $gutter_inside
+		margin-left: ($grid_gutter / 2)
+		margin-right: ($grid_gutter / 2)
+	else
+		margin-left: ($grid_gutter / 2)%
+		margin-right: ($grid_gutter / 2)%
+
+// clearfix the grid
+.grid:before,
+.grid:after,
+.grid--outerGutter:before,
+.grid--outerGutter:after
+	content: ""
+	display: table
+ 
+.grid:after,
+.grid--outerGutter:after
+	clear: both
+
+.grid,
+.grid--outerGutter
+	zoom: 1
+
+span($cols)
+	@extend .column
+	if $gutter_inside
+		width: ((100% / $grid_cols) * $cols)
+	else
+		width: (((100% / $grid_cols) * $cols) - $grid_gutter * 2)
+
+offsetBefore($cols)
+	if $gutter_inside
+		margin-left: ((100% / $grid_cols) * $cols)
+	else
+		margin-left: (((100% / $grid_cols) * $cols) + $grid_gutter)
+
+offsetAfter($cols)
+	if $gutter_inside
+		margin-right: ((100% / $grid_cols) * $cols)
+	else
+		margin-right: (((100% / $grid_cols) * $cols) + $grid_gutter)
+
+for $size,$breakpoint in $grid_breakpoints
+
+	if $breakpoint
+
+		@media screen and (min-width:$breakpoint)
+		
+			for $col in 1..$grid_cols
+
+				.{$size}{$col}
+					span($col)
+
+				.{$size}-before{$col}
+					offsetBefore($col)
+
+				.{$size}-after{$col}
+					offsetAfter($col)
+
+	else
+
+		for $col in 1..$grid_cols
+
+			.{$size}{$col}
+				span($col)
+
+			.{$size}-before{$col}
+				offsetBefore($col)
+
+			.{$size}-after{$col}
+				offsetAfter($col)
