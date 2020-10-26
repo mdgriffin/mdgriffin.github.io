@@ -1,5 +1,4 @@
 {
-
 	"name": "Fluice",
 	"description": "Personal Portfolio Theme",
 	"version": "1.0.0",
@@ -7,9 +6,7 @@
 		"name": "Michael Griffin",
 		"email": "mdgriffin064@gmail.com"
 	},
-
 	"devDependencies": {
 		"grunt-contrib-stylus": "*"
 	}
-
 }
